@@ -34,3 +34,14 @@ function loadFlag (element) {
         }
     }
 }
+
+const exchangeIcon = document.querySelector("#arrowIcon");
+exchangeIcon.addEventListener("click", () => {
+    
+    let tempCode = fromCurr.value;
+    fromCurr.value = toCurr.value;
+    toCurr.value = tempCode;
+    loadFlag(fromCurr); // carga de bandera input from
+    loadFlag(toCurr); // carga de bandera input to
+
+})
