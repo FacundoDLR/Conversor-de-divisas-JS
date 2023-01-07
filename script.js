@@ -3,6 +3,8 @@ const fromCurr = document.querySelector("#fromBtn");
 const toCurr = document.querySelector("#toBtn");
 const getBtn = document.querySelector("#convertBtn");
 
+const API_KEY = process.env.SUPABASE_KEY;
+
 for(let i=0; i<dropList.length; i++){
     for(let currencyCode in countryList){
         // Seleccion de mondeas por default
@@ -61,7 +63,7 @@ function getExchangeResult() {
     }
     exchangeResultTxt.innerText = "Obteniendo resultado...";
 
-    let url = `https://v6.exchangerate-api.com/v6/7826293c2647d86178ed4c14/latest/${fromCurr.value}`;
+    let url = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${fromCurr.value}`;
 
     fetch(url)
     .then(response => response.json())
